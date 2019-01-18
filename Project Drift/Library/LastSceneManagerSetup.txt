@@ -3,5 +3,8 @@ sceneSetups:
   isLoaded: 1
   isActive: 1
 - path: Assets/Scenes/Menu.unity
-  isLoaded: 1
+  isLoaded: 0
+  isActive: 0
+- path: Assets/Scenes/Showase.unity
+  isLoaded: 0
   isActive: 0

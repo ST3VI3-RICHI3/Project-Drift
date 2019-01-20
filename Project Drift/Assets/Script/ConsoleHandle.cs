@@ -12,28 +12,51 @@ public class ConsoleHandle : MonoBehaviour {
         string CMDBuffer = null;
         CMDBuffer = CommandLineFeild.text;
         CommandLineFeild.text = "";
+#pragma warning disable CS0164 // This label has not been referenced
+        CMDInterp:
+#pragma warning restore CS0164 // This label has not been referenced
         if (CMDBuffer.Length >= 9)
         {
-            if (CMDBuffer.Substring(0, 9) == "LoadScene")
+            if (CMDBuffer.Length >= 4)
             {
+                if (CMDBuffer == "exit")
+                {
+                    Application.Quit();
+                }
                 if (CMDBuffer.Length >= 11)
                 {
-                    try
+                    if (CMDBuffer.Substring(0, 11) == "CreateScene")
                     {
-                        SceneManager.LoadScene(int.Parse(CMDBuffer.Substring(10)));
-                    }
-                    catch
-                    {
-                        SceneManager.LoadScene(CMDBuffer.Substring(10));
+                        if (CMDBuffer.Length >= 13)
+                        {
+                            SceneManager.CreateScene(CMDBuffer.Substring(12));
+                        }
+                        else
+                        {
+                            //invalidSyntaxErr;
+                        }
                     }
                 }
-                else
+                if (CMDBuffer.Substring(0, 9) == "LoadScene")
                 {
-                    //invalidSyntaxErr;
+                    if (CMDBuffer.Length >= 11)
+                    {
+                        try
+                        {
+                            SceneManager.LoadScene(int.Parse(CMDBuffer.Substring(10)));
+                        }
+                        catch
+                        {
+                            SceneManager.LoadScene(CMDBuffer.Substring(10));
+                        }
+                    }
+                    else
+                    {
+                        //invalidSyntaxErr;
+                    }
                 }
-            }
-            
-        }
+
+            } }
         else
         {
             //UnknownCMDErr;

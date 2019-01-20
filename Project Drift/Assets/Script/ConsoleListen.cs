@@ -10,7 +10,6 @@ public class ConsoleListen : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Loader.DontDestroyOnLoad(ConsoleHandler);
-        Loader.DontDestroyOnLoad(ConsoleObject);
     }
 	
 	// Update is called once per frame

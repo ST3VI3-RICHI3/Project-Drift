@@ -1,10 +1,13 @@
 sceneSetups:
 - path: Assets/Scenes/Game_Start_Intro.unity
-  isLoaded: 1
-  isActive: 1
+  isLoaded: 0
+  isActive: 0
 - path: Assets/Scenes/Menu.unity
   isLoaded: 0
   isActive: 0
 - path: Assets/Scenes/Showase.unity
   isLoaded: 0
   isActive: 0
+- path: Assets/Interior_Garage.unity
+  isLoaded: 1
+  isActive: 1

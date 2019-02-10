@@ -82,9 +82,8 @@
     <Compile Include="Assets\Script\ConsoleHandle.cs" />
     <Compile Include="Assets\Script\ConsoleListen.cs" />
     <Compile Include="Assets\Script\Loader.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
+    <Compile Include="Assets\Script\MapLoader.cs" />
+    <Compile Include="Assets\Script\PlayerMovement_Walk.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

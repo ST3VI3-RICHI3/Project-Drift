@@ -1,0 +1,5 @@
+public world DevRoom 
+{
+    public GameObject [Plane 0,0,0 0,0,0,0]
+	public GameObject [Plane 10,0,0 0,0,0,0]
+}

@@ -37,15 +37,47 @@ public class MapLoader : MonoBehaviour
                 {
                     if (data[i].Substring(4, 17) == "public GameObject")
                     {
-                        if (data[i].Substring(23, 5) == "Plane")
+                        int PropertiesBegin = 0;
+                        bool found = false;
+                        while (found != true)
                         {
-                            buffer = data[i].Substring(29, 5);
+                            if (data[i].Substring(PropertiesBegin, 1) == "[")
+                            {
+                                found = true;
+                            }
+                            PropertiesBegin++;
+                        }
+                        int PropertiesEnd = PropertiesBegin;
+                        found = false;
+                        while (found != true)
+                        {
+                            if (data[i].Substring(PropertiesEnd, 1) == "]")
+                            {
+                                found = true;
+                            }
+                            PropertiesEnd++;
+                        }
+                        if (data[i].Substring(PropertiesBegin, 5) == "Plane")
+                        {
+                            int PosEnd = PropertiesBegin + 6;
+                            found = false;
+                            while (found != true)
+                            {
+                                if (data[i].Substring(PosEnd, 1) == " ")
+                                {
+                                    PosEnd -= 1;
+                                    found = true;
+                                }
+                                PosEnd++;
+                            }
+                            PosEnd = PosEnd - (PropertiesBegin + 6);
+                            buffer = data[i].Substring(29, PosEnd);
                             string[] Pos = buffer.Split(',');
                             Vector3 pos = new Vector3(
                                 float.Parse(Pos[0]),
                                 float.Parse(Pos[1]),
                                 float.Parse(Pos[2]));
-                            buffer = data[i].Substring(35, 7);
+                            buffer = data[i].Substring(PosEnd + 2, PropertiesEnd);
                             string[] Rot = buffer.Split(',');
                             Quaternion rot = new Quaternion(
                                 float.Parse(Rot[0]),

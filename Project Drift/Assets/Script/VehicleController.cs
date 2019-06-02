@@ -89,7 +89,7 @@ public class VehicleController : MonoBehaviour
         transform.rotation = quat;
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         GetInput();
         UpdateSteering();

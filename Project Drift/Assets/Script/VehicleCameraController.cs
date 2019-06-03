@@ -25,7 +25,7 @@ public class VehicleCameraController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, TargetPos, FollowSpeed * Time.deltaTime);
     }
 
-    public void LateUpdate()
+    public void FixedUpdate()
     {
         LookAtTarget();
         MoveToTarget();
